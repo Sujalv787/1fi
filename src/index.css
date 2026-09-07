@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ─── Design Tokens ──────────────────────────────────────── */
+:root {
+  /* Brand */
+  --color-brand: #6C28D9;
+  --color-brand-dark: #5520B0;
+  --color-brand-light: #EDE9FF;
+  --color-brand-lighter: #F5F0FF;
+
+  /* Success / Money signals — kept separate from brand per fintech convention */
+  --color-success: #16A34A;
+  --color-success-light: #DCFCE7;
+
+  /* Surfaces */
+  --color-surface: #F7F5FC;  /* off-white with slight purple tint */
+  --color-card: #FFFFFF;
+  --color-border: #EDE9F6;
+
+  /* Text */
+  --color-text-primary: #0F0A1E;
+  --color-text-secondary: #4B4666;
+  --color-text-tertiary: #9691A8;
+
+  /* Skeleton */
+  --color-skeleton-base: #EDE9F6;
+  --color-skeleton-shine: #F5F0FF;
+
+  /* Shadows */
+  --shadow-card: 0 1px 4px rgba(108, 40, 217, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 16px rgba(108, 40, 217, 0.14), 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  /* Radius */
+  --radius-pill: 999px;
+  --radius-card: 16px;
+}
+
+/* ─── Reset ──────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #1a0533;
+  min-height: 100vh;
+  overscroll-behavior: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 999px;
+}
+
+/* ─── Focus Styles ───────────────────────────────────────── */
+:focus-visible {
+  outline: 2.5px solid var(--color-brand);
+  outline-offset: 2px;
+}

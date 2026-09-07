@@ -1,0 +1,281 @@
+.product-detail-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.product-detail-page__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.product-detail-page__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Image ─────────────────────────────────────────────── */
+
+.product-detail__image-wrap {
+  background: linear-gradient(160deg, #F5F0FF 0%, #EDE9FF 100%);
+  padding: 32px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 260px;
+}
+
+.product-detail__image {
+  width: 100%;
+  max-height: 260px;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+}
+
+.product-detail__image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  width: 100%;
+}
+
+.product-detail__image-badges {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+/* ─── Info ──────────────────────────────────────────────── */
+
+.product-detail__info {
+  padding: 20px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-detail__brand {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-brand);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.product-detail__name {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1.25;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.product-detail__price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.product-detail__price {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-text-primary);
+  letter-spacing: -0.03em;
+}
+
+.product-detail__rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #FFFBEB;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid #FDE68A;
+}
+
+.product-detail__rating span:first-of-type {
+  font-size: 13px;
+  font-weight: 700;
+  color: #92400E;
+}
+
+.product-detail__review-count {
+  font-size: 11px;
+  color: #92400E;
+  opacity: 0.7;
+}
+
+.product-detail__description {
+  font-size: 13.5px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ─── EMI Callout ──────────────────────────────────────── */
+
+.product-detail__emi-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: linear-gradient(135deg, #DCFCE7 0%, #D1FAE5 100%);
+  border: 1px solid #86EFAC;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.product-detail__emi-callout-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.product-detail__emi-callout-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #15803D;
+  margin: 0 0 3px;
+}
+
+.product-detail__emi-callout-sub {
+  font-size: 12px;
+  color: #166534;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ─── Sections ──────────────────────────────────────────── */
+
+.product-detail__section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 4px;
+  border-top: 1px solid var(--color-border);
+}
+
+.product-detail__section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  padding-top: 16px;
+}
+
+.product-detail__section-subtitle {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-text-tertiary);
+}
+
+/* ─── Highlights ────────────────────────────────────────── */
+
+.product-detail__highlights {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-detail__highlight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.product-detail__highlight-item svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ─── EMI Skeleton ──────────────────────────────────────── */
+
+.emi-plans-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.emi-plan-skeleton-item {
+  height: 68px;
+  border-radius: 14px;
+  background: linear-gradient(
+    90deg,
+    var(--color-skeleton-base) 25%,
+    var(--color-skeleton-shine) 50%,
+    var(--color-skeleton-base) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+/* ─── EMI Plans List ────────────────────────────────────── */
+
+.emi-plans-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ─── Terms ─────────────────────────────────────────────── */
+
+.product-detail__terms {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.product-detail__terms p {
+  font-size: 11.5px;
+  color: var(--color-text-tertiary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ─── Toast ──────────────────────────────────────────────── */
+
+.product-detail__toast {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #16A34A;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgba(22, 163, 74, 0.4);
+  animation: toast-in 0.2s ease, toast-out 0.2s ease 2.8s forwards;
+}
+
+@keyframes toast-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes toast-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

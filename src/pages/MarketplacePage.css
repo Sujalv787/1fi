@@ -1,0 +1,163 @@
+.marketplace-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.marketplace-page__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.marketplace-page__scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Hero Banner ─────────────────────────────────────── */
+
+.marketplace-hero {
+  margin: 16px;
+  padding: 20px;
+  background: linear-gradient(135deg, #6C28D9 0%, #9B59F5 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  min-height: 120px;
+}
+
+.marketplace-hero__content {
+  z-index: 1;
+  position: relative;
+}
+
+.marketplace-hero__badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(4px);
+}
+
+.marketplace-hero__heading {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0 0 6px;
+}
+
+.marketplace-hero__sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+  font-weight: 500;
+}
+
+.marketplace-hero__visual {
+  position: absolute;
+  right: -20px;
+  top: -20px;
+  width: 140px;
+  height: 140px;
+}
+
+.marketplace-hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.marketplace-hero__orb--1 {
+  width: 100px;
+  height: 100px;
+  right: 20px;
+  top: 10px;
+}
+
+.marketplace-hero__orb--2 {
+  width: 70px;
+  height: 70px;
+  right: 0;
+  top: 40px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.marketplace-hero__emoji {
+  position: absolute;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 52px;
+  z-index: 1;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+/* ─── Products ────────────────────────────────────────── */
+
+.marketplace-page__count {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  padding: 0 16px 8px;
+  margin: 0;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 0 16px 16px;
+}
+
+.marketplace-empty {
+  padding: 48px 16px;
+  text-align: center;
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+}
+
+/* ─── Trust Strip ─────────────────────────────────────── */
+
+.trust-strip {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-card);
+  margin-bottom: 16px;
+}
+
+.trust-strip__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 4px;
+  border-right: 1px solid var(--color-border);
+}
+
+.trust-strip__item:last-child {
+  border-right: none;
+}
+
+.trust-strip__icon {
+  font-size: 18px;
+}
+
+.trust-strip__label {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-align: center;
+}

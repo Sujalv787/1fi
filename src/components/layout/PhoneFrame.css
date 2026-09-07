@@ -1,0 +1,111 @@
+.phone-frame-outer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a0533 0%, #3d1278 40%, #1a0533 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.phone-frame {
+  width: 390px;
+  height: 844px;
+  background: var(--color-surface);
+  border-radius: 44px;
+  box-shadow:
+    0 0 0 10px #0d0d0d,
+    0 0 0 12px #2a2a2a,
+    0 40px 80px rgba(0, 0, 0, 0.6),
+    0 0 60px rgba(108, 40, 217, 0.3);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.phone-frame__status-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px 4px;
+  background: var(--color-card);
+  flex-shrink: 0;
+  color: var(--color-text-primary);
+}
+
+.phone-frame__time {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.phone-frame__status-icons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-primary);
+}
+
+.phone-frame__battery {
+  width: 22px;
+  height: 11px;
+  border: 1.5px solid currentColor;
+  border-radius: 3px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1.5px;
+}
+
+.phone-frame__battery::after {
+  content: '';
+  position: absolute;
+  right: -4.5px;
+  width: 2.5px;
+  height: 5px;
+  background: currentColor;
+  border-radius: 0 2px 2px 0;
+}
+
+.phone-frame__battery-fill {
+  width: 70%;
+  height: 100%;
+  background: var(--color-success);
+  border-radius: 1.5px;
+}
+
+.phone-frame__content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  /* hide scrollbar inside phone frame */
+  scrollbar-width: none;
+}
+
+.phone-frame__content::-webkit-scrollbar {
+  display: none;
+}
+
+/* Responsive: on mobile, show full-screen without phone frame */
+@media (max-width: 500px) {
+  .phone-frame-outer {
+    padding: 0;
+    background: var(--color-surface);
+    min-height: 100vh;
+    align-items: flex-start;
+  }
+
+  .phone-frame {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .phone-frame__status-bar {
+    display: none;
+  }
+}

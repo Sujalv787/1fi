@@ -1,0 +1,75 @@
+.variant-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.variant-group__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.variant-group__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.variant-group__selected-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-brand);
+}
+
+.variant-group__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.variant-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-card);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  transition: all 0.15s ease;
+  min-width: 64px;
+}
+
+.variant-option:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+  background: var(--color-brand-light);
+}
+
+.variant-option--selected {
+  border-color: var(--color-brand);
+  background: var(--color-brand-light);
+  color: var(--color-brand);
+  font-weight: 600;
+  box-shadow: 0 0 0 2px rgba(108, 40, 217, 0.15);
+}
+
+.variant-option--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.variant-option__price {
+  font-size: 11px;
+  font-weight: 600;
+  color: inherit;
+  opacity: 0.8;
+}

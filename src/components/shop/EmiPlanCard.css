@@ -1,0 +1,112 @@
+.emi-plan-card {
+  display: grid;
+  grid-template-columns: 24px auto 1px 1fr auto;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 14px;
+  background: var(--color-card);
+  border: 1.5px solid var(--color-border);
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: all 0.18s ease;
+}
+
+.emi-plan-card:hover {
+  border-color: var(--color-brand);
+  background: #FAFAFF;
+}
+
+.emi-plan-card--selected {
+  border-color: var(--color-brand);
+  background: var(--color-brand-light);
+  box-shadow: 0 0 0 2.5px rgba(108, 40, 217, 0.15);
+}
+
+.emi-plan-card__check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emi-plan-card__check-empty {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+}
+
+.emi-plan-card--selected .emi-plan-card__check-empty {
+  border-color: var(--color-brand);
+}
+
+.emi-plan-card__tenure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 36px;
+}
+
+.emi-plan-card__months {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.emi-plan-card--selected .emi-plan-card__months {
+  color: var(--color-brand);
+}
+
+.emi-plan-card__months-label {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+}
+
+.emi-plan-card__divider {
+  height: 40px;
+  background: var(--color-border);
+  width: 1px;
+}
+
+.emi-plan-card__amounts {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.emi-plan-card__monthly {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+}
+
+.emi-plan-card__monthly-amount {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.emi-plan-card--selected .emi-plan-card__monthly-amount {
+  color: var(--color-brand);
+}
+
+.emi-plan-card__monthly-label {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+}
+
+.emi-plan-card__total {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+}
+
+.emi-plan-card__badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}

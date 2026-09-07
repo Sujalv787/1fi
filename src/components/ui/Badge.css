@@ -1,0 +1,38 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 600;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.badge--sm {
+  font-size: 10px;
+  padding: 2px 8px;
+}
+
+.badge--md {
+  font-size: 12px;
+  padding: 4px 10px;
+}
+
+.badge--success {
+  background: #DCFCE7;
+  color: #15803D;
+}
+
+.badge--brand {
+  background: var(--color-brand-light);
+  color: var(--color-brand);
+}
+
+.badge--neutral {
+  background: #F3F4F6;
+  color: #6B7280;
+}
+
+.badge--warning {
+  background: #FEF9C3;
+  color: #92400E;
+}
