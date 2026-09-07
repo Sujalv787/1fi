@@ -1,23 +1,27 @@
-import type { Category, EmiPlan, EmiPlansResponse, ProductDetailResponse, ProductListResponse, VariantGroup } from '../types';
+import type { Category, EmiPlan, EmiPlansResponse, Product, ProductDetailResponse, ProductListResponse, VariantGroup } from '../types';
+
+// ─── Local product images (bundled with the app — no external URLs, no CORS) ─
+import imgIphone17 from '../assets/iphone-17.png';
+import imgIphone17ProMax from '../assets/iphone-17-pro-max.png';
+import imgGalaxyS25Ultra from '../assets/galaxy-s25-ultra.png';
+import imgOnePlus13 from '../assets/oneplus-13.png';
+import imgMacbookProM4 from '../assets/macbook-pro-m4.png';
+import imgRoyalEnfield from '../assets/royal-enfield-classic-350.png';
+import imgSonyWH1000XM6 from '../assets/sony-wh1000xm6.png';
 
 // ─── Mock Data ────────────────────────────────────────────────────────────────
 
-// Using placehold.co as a reliable fallback for product images in dev.
-// In production, replace with actual product CDN URLs from the backend.
 const PRODUCT_IMAGES: Record<string, string> = {
-  'iphone-17': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16.jpg',
-  'iphone-17-pro-max': 'https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-16-pro-max.jpg',
-  'galaxy-s25-ultra': 'https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-s25-ultra.jpg',
-  'oneplus-13': 'https://fdn2.gsmarena.com/vv/bigpic/oneplus-13.jpg',
-  'macbook-pro-m4': 'https://fdn2.gsmarena.com/vv/bigpic/apple-macbook-pro-16-2023.jpg',
-  'royal-enfield-classic-350': 'https://imgd.aeplcdn.com/664x374/n/cw/ec/44686/royal-enfield-classic-350-right-side-view-3.jpeg',
-  'sony-wh1000xm6': 'https://fdn2.gsmarena.com/vv/bigpic/sony-wh-1000xm5.jpg',
+  'iphone-17': imgIphone17,
+  'iphone-17-pro-max': imgIphone17ProMax,
+  'galaxy-s25-ultra': imgGalaxyS25Ultra,
+  'oneplus-13': imgOnePlus13,
+  'macbook-pro-m4': imgMacbookProM4,
+  'royal-enfield-classic-350': imgRoyalEnfield,
+  'sony-wh1000xm6': imgSonyWH1000XM6,
 };
 
-const fallbackImage = (id: string) =>
-  `https://placehold.co/400x400/6C28D9/ffffff?text=${encodeURIComponent(id)}`;
-
-const img = (id: string) => PRODUCT_IMAGES[id] ?? fallbackImage(id);
+const img = (id: string) => PRODUCT_IMAGES[id] ?? '';
 
 // ─── Variant Helpers ──────────────────────────────────────────────────────────
 
@@ -48,8 +52,6 @@ const colorVariants = (configs: { label: string; price?: number }[], basePrice: 
 });
 
 // ─── Product Catalogue ────────────────────────────────────────────────────────
-
-import type { Product } from '../types';
 
 const PRODUCTS: Product[] = [
   {
