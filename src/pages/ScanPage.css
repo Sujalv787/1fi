@@ -1,0 +1,329 @@
+.scan-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+.scan-page__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+.scan-page__scroll::-webkit-scrollbar { display: none; }
+
+/* ─── QR Area ──────────────────────────────────────────── */
+.scan-qr-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 24px 16px;
+  background: var(--color-card);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.scan-qr-frame {
+  width: 220px;
+  height: 220px;
+  border-radius: 20px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-brand-light);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.scan-qr-placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-qr-corner {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border-color: var(--color-brand);
+  border-style: solid;
+}
+.scan-qr-corner--tl { top: 12px; left: 12px; border-width: 3px 0 0 3px; border-radius: 6px 0 0 0; }
+.scan-qr-corner--tr { top: 12px; right: 12px; border-width: 3px 3px 0 0; border-radius: 0 6px 0 0; }
+.scan-qr-corner--bl { bottom: 12px; left: 12px; border-width: 0 0 3px 3px; border-radius: 0 0 0 6px; }
+.scan-qr-corner--br { bottom: 12px; right: 12px; border-width: 0 3px 3px 0; border-radius: 0 0 6px 0; }
+
+.scan-qr-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.scan-qr-icon p {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+}
+
+/* Active scanning state */
+.scan-qr-active {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(108, 40, 217, 0.04);
+}
+
+.scan-qr-laser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-brand), transparent);
+  animation: laser-scan 1.5s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(108, 40, 217, 0.6);
+}
+
+@keyframes laser-scan {
+  0%   { top: 10%; }
+  50%  { top: 85%; }
+  100% { top: 10%; }
+}
+
+.scan-qr-active__text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-brand);
+  margin: 0;
+  animation: pulse-text 1s ease-in-out infinite alternate;
+}
+@keyframes pulse-text { from { opacity: 0.7; } to { opacity: 1; } }
+
+.scan-camera-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--color-brand);
+  color: #fff;
+  border: none;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(108, 40, 217, 0.4);
+  transition: all 0.15s ease;
+}
+.scan-camera-btn:hover { background: #5520b0; }
+.scan-camera-btn:active { transform: scale(0.97); }
+
+/* ─── Divider ──────────────────────────────────────────── */
+.scan-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px;
+}
+.scan-divider__line {
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+.scan-divider__text {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  white-space: nowrap;
+}
+
+/* ─── Pay Options ──────────────────────────────────────── */
+.scan-pay-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0 16px;
+}
+
+.scan-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: border-color 0.15s, background 0.15s;
+}
+.scan-option-btn:hover { border-color: var(--color-brand); background: var(--color-brand-lighter); }
+
+.scan-option-btn__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.scan-option-btn__icon--purple { background: var(--color-brand-light); color: var(--color-brand); }
+.scan-option-btn__icon--green  { background: #DCFCE7; color: #16A34A; }
+
+.scan-option-btn__text { flex: 1; }
+.scan-option-btn__text p {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 2px;
+}
+.scan-option-btn__text span {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+}
+
+/* ─── UPI Input ────────────────────────────────────────── */
+.scan-upi-input-wrap {
+  display: flex;
+  gap: 8px;
+  margin: 12px 16px 0;
+  animation: slide-in 0.2s ease;
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scan-upi-input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  background: var(--color-card);
+  color: var(--color-text-primary);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.scan-upi-input:focus { border-color: var(--color-brand); }
+
+.scan-upi-verify-btn {
+  padding: 12px 16px;
+  background: var(--color-brand);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.scan-upi-verify-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ─── How It Works ─────────────────────────────────────── */
+.scan-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 12px;
+}
+
+.scan-how-it-works {
+  margin: 20px 16px 0;
+  padding: 16px;
+  background: var(--color-card);
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+}
+
+.scan-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+.scan-step:last-child { border-bottom: none; padding-bottom: 0; }
+.scan-step:first-child { padding-top: 0; }
+
+.scan-step__icon { font-size: 22px; flex-shrink: 0; line-height: 1; margin-top: 1px; }
+.scan-step__title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 2px;
+}
+.scan-step__desc {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ─── Recent Payments ──────────────────────────────────── */
+.scan-recent {
+  margin: 16px;
+}
+
+.scan-recent-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: var(--color-card);
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  margin-bottom: 6px;
+}
+
+.scan-recent-item__logo {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.scan-recent-item__info { flex: 1; min-width: 0; }
+.scan-recent-item__merchant {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.scan-recent-item__location {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+  margin: 0;
+}
+
+.scan-recent-item__amount {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+  flex-shrink: 0;
+}
