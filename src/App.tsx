@@ -4,6 +4,8 @@ import { PhoneFrame } from './components/layout/PhoneFrame';
 import { MarketplacePage } from './pages/MarketplacePage';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { TopBrandsPage, NearbyStoresPage } from './pages/PlaceholderPage';
+import { AppHeader } from './components/layout/AppHeader';
+import { BottomNav } from './components/layout/BottomNav';
 
 function App() {
   return (
@@ -30,12 +32,12 @@ function App() {
           {/* Product detail */}
           <Route path="/shop/product/:id" element={<ProductDetailPage />} />
 
-          {/* Stub routes for bottom nav items (not in scope) */}
-          <Route path="/wallet" element={<StubPage title="Wallet" emoji="💳" />} />
-          <Route path="/scan" element={<StubPage title="Scan & Pay" emoji="📷" />} />
-          <Route path="/profile" element={<StubPage title="Profile" emoji="👤" />} />
+          {/* Stub routes for bottom nav items (not in scope of this assignment) */}
+          <Route path="/wallet" element={<StubPage title="Wallet" emoji="💳" subtitle="View your credit limit and pledged mutual funds" />} />
+          <Route path="/scan" element={<StubPage title="Scan & Pay" emoji="📷" subtitle="Scan a QR code to pay at partner stores" />} />
+          <Route path="/profile" element={<StubPage title="Profile" emoji="👤" subtitle="Manage your account and KYC details" />} />
 
-          {/* 404 */}
+          {/* 404 fallback */}
           <Route path="*" element={<Navigate to="/shop/marketplace" replace />} />
         </Routes>
       </PhoneFrame>
@@ -43,22 +45,56 @@ function App() {
   );
 }
 
-// Minimal stub for non-implemented nav tabs
-const StubPage: React.FC<{ title: string; emoji: string }> = ({ title, emoji }) => (
-  <div style={{
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%',
-    gap: '12px',
-    background: 'var(--color-surface)',
-    color: 'var(--color-text-secondary)',
-    fontFamily: 'inherit',
-  }}>
-    <span style={{ fontSize: '48px' }}>{emoji}</span>
-    <span style={{ fontSize: '18px', fontWeight: 700, color: 'var(--color-text-primary)' }}>{title}</span>
-    <span style={{ fontSize: '13px' }}>This section is outside the scope of this demo.</span>
+/**
+ * Stub page for nav tabs that are out of scope for this assignment.
+ * Includes AppHeader (with back navigation) and BottomNav so users
+ * can always navigate away without getting trapped.
+ */
+const StubPage: React.FC<{ title: string; emoji: string; subtitle: string }> = ({
+  title,
+  emoji,
+  subtitle,
+}) => (
+  <div style={{ display: 'flex', flexDirection: 'column', height: '100%', background: 'var(--color-surface)' }}>
+    <AppHeader title={title} showBack />
+    <div
+      style={{
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '12px',
+        padding: '32px 24px',
+        textAlign: 'center',
+        fontFamily: 'inherit',
+      }}
+    >
+      <span style={{ fontSize: '56px', lineHeight: 1 }}>{emoji}</span>
+      <span style={{ fontSize: '20px', fontWeight: 800, color: 'var(--color-text-primary)', letterSpacing: '-0.02em' }}>
+        {title}
+      </span>
+      <span style={{ fontSize: '13px', color: 'var(--color-text-secondary)', lineHeight: 1.6, maxWidth: '240px' }}>
+        {subtitle}
+      </span>
+      <span
+        style={{
+          marginTop: '8px',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '6px',
+          padding: '6px 16px',
+          background: 'var(--color-brand-light)',
+          color: 'var(--color-brand)',
+          borderRadius: '999px',
+          fontSize: '12px',
+          fontWeight: 600,
+        }}
+      >
+        Out of scope for this demo
+      </span>
+    </div>
+    <BottomNav />
   </div>
 );
 
