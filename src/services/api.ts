@@ -1,4 +1,4 @@
-import type { Category, EmiPlan, EmiPlansResponse, ProductDetailResponse, ProductListResponse, Variant, VariantGroup } from '../types';
+import type { Category, EmiPlan, EmiPlansResponse, ProductDetailResponse, ProductListResponse, VariantGroup } from '../types';
 
 // ─── Mock Data ────────────────────────────────────────────────────────────────
 

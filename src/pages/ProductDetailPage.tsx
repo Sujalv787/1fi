@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useProductDetail } from '../hooks/useProductDetail';
 import { useEmiPlans } from '../hooks/useEmiPlans';
 import { getDefaultVariants, resolveVariantPrice } from '../services/api';
@@ -16,7 +16,7 @@ import './ProductDetailPage.css';
 
 export const ProductDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const navigate = useNavigate();
+
   const { product, loadingState, error, retry } = useProductDetail(id ?? '');
 
   // Initialize variants once product loads
